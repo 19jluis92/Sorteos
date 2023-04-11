@@ -26,6 +26,9 @@ src/main/resources/META-INF/persistence.xml
 
 ### DatePicker issue
 only if you need update the UI you have to use netbeans and add the plugin to check the datepicker
+check your .m2/repository folder and look for the artiact LGoodDatePicker
+
+1. [in your netbeans ](https://docs.oracle.com/javase/tutorial/javabeans/quick/addbean.html)
 
 ### SQL error 
 
