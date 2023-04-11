@@ -3,6 +3,7 @@
 1. Clone the projet
 2. mvn clean install
 
+Note: you must have maven 
 
 # Data base
 1. install MySql server
