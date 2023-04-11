@@ -7,10 +7,16 @@ Note: you must have maven
 
 # Data base
 1. install [MySql server](https://dev.mysql.com/downloads/installer/)
-2. create the database "sorteos"![image](https://user-images.githubusercontent.com/8491553/231277829-84cfa4fa-5265-4888-b2b5-49146e77c1ea.png)
+2. create the database "sorteos"
+
+![image](https://user-images.githubusercontent.com/8491553/231277829-84cfa4fa-5265-4888-b2b5-49146e77c1ea.png)
+
 ![image](https://user-images.githubusercontent.com/8491553/231277897-fadbed35-02e7-4cb1-a51a-79f73b6f9f26.png)
+
 3. import the sql dump file /src/main/resources/META-INF/Sorteos10-04-2023.sql 
+
 ![image](https://user-images.githubusercontent.com/8491553/231278076-bc18292d-515b-4e27-8abc-2450a71f8bcc.png)
+
 4. restore
 
 
@@ -51,19 +57,25 @@ Melate has increased the numbers to select in its draws four times:
 4. Number 2088 date: 09/12/2007
 
 So you can check the coincidences filter by specific dates to avoid merge different samples
+
 ![image](https://user-images.githubusercontent.com/8491553/231287552-8607e257-806f-420f-bd4f-fb0756077f75.png)
+
 checking only with the last changes
 
 and validate if some one win more than one time like the "estrella de la suerte"
+
+
 ![image](https://user-images.githubusercontent.com/8491553/231287915-a621b35f-0257-4926-8118-6c92b66aa223.png)
 
 ## The "Buscador Numeros" section
 works to validate if the number win a prize in the past
+
 ![image](https://user-images.githubusercontent.com/8491553/231288188-04ee4084-d236-4e1b-a592-d926053c4213.png)
 ![image](https://user-images.githubusercontent.com/8491553/231288377-be47c3bd-89f4-4846-a1ec-2de1ec1ae55a.png)
 
 ## The "Registro Individual"
 you can add manually the specific winner
+
 ![image](https://user-images.githubusercontent.com/8491553/231288602-f53c6d33-fdd8-4963-bb8a-b5b374e28ff7.png)
 
 or download the file csv from the governance page and loaded(The system does not validate duplicate information)
