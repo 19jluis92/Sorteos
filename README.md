@@ -6,7 +6,7 @@
 Note: you must have maven 
 
 # Data base
-1. install MySql server
+1. install [MySql server](https://dev.mysql.com/downloads/installer/)
 2. create the database "sorteos"![image](https://user-images.githubusercontent.com/8491553/231277829-84cfa4fa-5265-4888-b2b5-49146e77c1ea.png)
 ![image](https://user-images.githubusercontent.com/8491553/231277897-fadbed35-02e7-4cb1-a51a-79f73b6f9f26.png)
 3. import the sql dump file /src/main/resources/META-INF/Sorteos10-04-2023.sql 
