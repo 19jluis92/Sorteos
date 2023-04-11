@@ -224,24 +224,23 @@ public class Sorteos extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboTipo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1)
+                            .addComponent(concurrenciaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                            .addComponent(algoritmoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(historicButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(Fin1)
                                 .addGap(18, 18, 18)
-                                .addComponent(datePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(comboTipo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jScrollPane1)
-                                .addComponent(concurrenciaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
-                                .addComponent(algoritmoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(historicButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                                .addComponent(datePicker2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(datePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addGap(32, 32, 32))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,8 +320,7 @@ public class Sorteos extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(datePicker3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(datePicker3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(buscarTextField, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(findButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(calcularButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -337,18 +335,17 @@ public class Sorteos extends javax.swing.JFrame {
                         .addGap(27, 27, 27))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel14)
-                        .addContainerGap(24, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Fin)
-                        .addGap(18, 18, 18)
-                        .addComponent(datePicker4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(Fin)
+                .addGap(18, 18, 18)
+                .addComponent(datePicker4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(27, 27, 27))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -471,7 +468,7 @@ public class Sorteos extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(23, 23, 23)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -525,56 +522,6 @@ public class Sorteos extends javax.swing.JFrame {
         
     }//GEN-LAST:event_button2ActionPerformed
 
-    private void concurrenciaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concurrenciaButtonActionPerformed
-        Brain core =new Brain();
-       resultArea.setText("");
-        String result = "";
-        if((comboTipo2.getSelectedIndex()+1 )== 3)
-        {
-            Date inicio = Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-             Date fin =         Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-       result = core.concurrenciasMelate(comboTipo2.getSelectedIndex()+1,inicio,fin);  
-        }else
-        {
-        
-         result =  core.concurrencias(this.comboTipo2.getSelectedIndex()+1);
-        }
-        
-        
-        
-        resultArea.setText(result);
-           JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_concurrenciaButtonActionPerformed
-
-    private void algoritmoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_algoritmoButtonActionPerformed
-         Brain core =new Brain();
-       resultArea.setText("");
-        String result = "";
-        if((comboTipo2.getSelectedIndex()+1 )== 3)
-        {
-            Date inicio = Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-             Date fin =         Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            result = core.amigosMelate(comboTipo2.getSelectedIndex()+1,inicio,fin);  
-        }else
-        {
-        
-         result =  core.concurrencias(this.comboTipo2.getSelectedIndex()+1);
-        }
-        
-        
-        
-        resultArea.setText(result);
-           JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_algoritmoButtonActionPerformed
-
-    private void historicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historicButtonActionPerformed
-       Brain core =new Brain();
-       resultArea.setText("");
-        String result =      core.numerosRepetidos(this.comboTipo2.getSelectedIndex()+1);
-        resultArea.setText(result);
-           JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_historicButtonActionPerformed
-
     private void findButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findButtonActionPerformed
          Brain core =new Brain();
          buscarTextArea.setText("");
@@ -626,6 +573,52 @@ public class Sorteos extends javax.swing.JFrame {
         this.numeroIndividual.setText("");
         JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonSaveIndividualActionPerformed
+
+    private void algoritmoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_algoritmoButtonActionPerformed
+        Brain core =new Brain();
+        resultArea.setText("");
+        String result = "";
+        if((comboTipo2.getSelectedIndex()+1 )== 3)
+        {
+            Date inicio = Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            Date fin =         Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            result = core.amigosMelate(comboTipo2.getSelectedIndex()+1,inicio,fin);
+        }else
+        {
+
+            result =  core.concurrencias(this.comboTipo2.getSelectedIndex()+1);
+        }
+
+        resultArea.setText(result);
+        JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_algoritmoButtonActionPerformed
+
+    private void historicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historicButtonActionPerformed
+        Brain core =new Brain();
+        resultArea.setText("");
+        String result =      core.numerosRepetidos(this.comboTipo2.getSelectedIndex()+1);
+        resultArea.setText(result);
+        JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_historicButtonActionPerformed
+
+    private void concurrenciaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concurrenciaButtonActionPerformed
+        Brain core =new Brain();
+        resultArea.setText("");
+        String result = "";
+        if((comboTipo2.getSelectedIndex()+1 )== 3)
+        {
+            Date inicio = Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            Date fin =         Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            result = core.concurrenciasMelate(comboTipo2.getSelectedIndex()+1,inicio,fin);
+        }else
+        {
+
+            result =  core.concurrencias(this.comboTipo2.getSelectedIndex()+1);
+        }
+
+        resultArea.setText(result);
+        JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_concurrenciaButtonActionPerformed
 
     /**
      * @param args the command line arguments
