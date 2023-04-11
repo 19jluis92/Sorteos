@@ -146,7 +146,8 @@ public class NumerosJpaController implements Serializable {
           
            
           Query q = em.createQuery(criteria);
-            return q.getResultList();
+            List<Numeros> result = q.getResultList();
+            return result;
         } finally {
             em.close();
         }
