@@ -15,7 +15,7 @@
 
 # Problems
 
-Database connection 
+## Database connection 
 src/main/resources/META-INF/persistence.xml
 ...
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sorteos?zeroDateTimeBehavior=CONVERT_TO_NULL"/> <--- update port or configuration
@@ -24,13 +24,15 @@ src/main/resources/META-INF/persistence.xml
       <property name="javax.persistence.jdbc.password" value="root"/> <--- update for your pass
 ...
 
-DatePicker issue
+### DatePicker issue
 only if you need update the UI you have to use netbeans and add the plugin to check the datepicker
 
-SQL error 
+### SQL error 
+
 ...
 ERROR: Table 'sorteos.numeros' doesn't exist
 Exception in thread "AWT-EventQueue-0" javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
 ...
-work around 
-1. "good luck"
+
+### work around 
+1."good luck"
