@@ -4,13 +4,13 @@
 2- mvn clean install
 
 
-#Data base
-1- install MySql server
-2- create the database "sorteos"
-3- import the sql dump file /src/main/resources/META-INF/sorteos.sql 
-4- restore
+# Data base
+-install MySql server
+-create the database "sorteos"
+-import the sql dump file /src/main/resources/META-INF/sorteos.sql 
+-restore
 
 
-#Problems
+# Problems
 
 DatePicker issue
