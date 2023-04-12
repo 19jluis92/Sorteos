@@ -70,7 +70,7 @@ and validate if some one win more than one time like the "estrella de la suerte"
 ## The "Buscador Numeros" section
 works to validate if the number win a prize in the past
 
-![image](https://user-images.githubusercontent.com/8491553/231288188-04ee4084-d236-4e1b-a592-d926053c4213.png)
+![image](https://user-images.githubusercontent.com/8491553/231332362-b9fd4602-1b02-4c96-91fe-adabdb6b238e.png)
 ![image](https://user-images.githubusercontent.com/8491553/231332228-ad904a8f-0ca9-4702-b69d-4e85c172b9d9.png)
 
 and you can validate the number of incidencies for a sequence number
