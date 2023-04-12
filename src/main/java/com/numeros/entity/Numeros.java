@@ -29,12 +29,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "numeros")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Numeros.findAll", query = "SELECT n FROM Numeros n"),
-    @NamedQuery(name = "Numeros.findByIdnumeros", query = "SELECT n FROM Numeros n WHERE n.idnumeros = :idnumeros"),
-    @NamedQuery(name = "Numeros.findByNumero", query = "SELECT n FROM Numeros n WHERE n.numero = :numero"),
-    @NamedQuery(name = "Numeros.findByNumeroSorteo", query = "SELECT n FROM Numeros n WHERE n.numeroSorteo = :numeroSorteo"),
-    @NamedQuery(name = "Numeros.findByDate", query = "SELECT n FROM Numeros n WHERE n.date = :date")})
+@NamedQueries({ @NamedQuery(name = "Numeros.findAll", query = "SELECT n FROM Numeros n"),
+        @NamedQuery(name = "Numeros.findByIdnumeros", query = "SELECT n FROM Numeros n WHERE n.idnumeros = :idnumeros"),
+        @NamedQuery(name = "Numeros.findByNumero", query = "SELECT n FROM Numeros n WHERE n.numero = :numero"),
+        @NamedQuery(name = "Numeros.findByNumeroSorteo", query = "SELECT n FROM Numeros n WHERE n.numeroSorteo = :numeroSorteo"),
+        @NamedQuery(name = "Numeros.findByDate", query = "SELECT n FROM Numeros n WHERE n.date = :date") })
 public class Numeros implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -123,7 +122,8 @@ public class Numeros implements Serializable {
             return false;
         }
         Numeros other = (Numeros) object;
-        if ((this.idnumeros == null && other.idnumeros != null) || (this.idnumeros != null && !this.idnumeros.equals(other.idnumeros))) {
+        if ((this.idnumeros == null && other.idnumeros != null)
+                || (this.idnumeros != null && !this.idnumeros.equals(other.idnumeros))) {
             return false;
         }
         return true;
@@ -133,42 +133,39 @@ public class Numeros implements Serializable {
     public String toString() {
         return "com.numeros.entity.Numeros[ idnumeros=" + idnumeros + " ]";
     }
-    
-    
-    
-    public int getpos1(){
-    
-       
+
+    public int getpos1() {
+
         return Integer.parseInt(this.numero.substring(0, 1));
     }
-    
-    public Integer getposNumero1(){
-    int temp = Integer.parseInt(this.numero.substring(0, 2));
+
+    public Integer getposNumero1() {
+        int temp = Integer.parseInt(this.numero.substring(0, 2));
         return Integer.parseInt(this.numero.substring(0, 2));
     }
-    
-    public Integer getposNumero2(){
-    int temp = Integer.parseInt(this.numero.substring(2, 4));
+
+    public Integer getposNumero2() {
+        int temp = Integer.parseInt(this.numero.substring(2, 4));
         return Integer.parseInt(this.numero.substring(2, 4));
     }
-    
-    public Integer getposNumero3(){
-    
+
+    public Integer getposNumero3() {
+
         return Integer.parseInt(this.numero.substring(4, 6));
     }
-    
-    public Integer getposNumero4(){
-    
+
+    public Integer getposNumero4() {
+
         return Integer.parseInt(this.numero.substring(6, 8));
     }
-    
-    public Integer getposNumero5(){
-    
+
+    public Integer getposNumero5() {
+
         return Integer.parseInt(this.numero.substring(8, 10));
     }
-    
-    public Integer getposNumero6(){
-    
+
+    public Integer getposNumero6() {
+
         return Integer.parseInt(this.numero.substring(10, 12));
     }
 }

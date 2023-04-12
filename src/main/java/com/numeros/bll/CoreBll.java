@@ -18,39 +18,37 @@ import javax.persistence.Persistence;
  * @author jluis
  */
 public class CoreBll {
-    EntityManagerFactory emf ;
-     public CoreBll(){
-         emf =
-        Persistence.createEntityManagerFactory("SorteosPU");
-     }
-     
-     
-     public void create(Numeros item){
-         NumerosJpaController controller = new NumerosJpaController(emf);
-         controller.create(item);
-     }
-     
-     
-     public List<Numeros> getAll(){
-     
-       NumerosJpaController controller = new NumerosJpaController(emf);
-         return  controller.findNumerosEntities();
-     }
-     
-      public List<Numeros> getAllBySorteo(int sorteoId){
-     
-       NumerosJpaController controller = new NumerosJpaController(emf);
-         return  controller.findNumerosEntitiesBySorteId(sorteoId,null,null);
-     }
-     
-      public List<Numeros> getAllBySorteo(int sorteoId,Date inicio,Date fin){
-     
-       NumerosJpaController controller = new NumerosJpaController(emf);
-         return  controller.findNumerosEntitiesBySorteId(sorteoId,inicio,fin);
-     }
+    EntityManagerFactory emf;
 
-    public  List<Numeros> getAllbyNumero(String numero, int sorteoTipo) {
+    public CoreBll() {
+        emf = Persistence.createEntityManagerFactory("SorteosPU");
+    }
+
+    public void create(Numeros item) {
         NumerosJpaController controller = new NumerosJpaController(emf);
-        return  controller.findNumerosByNumero(numero,sorteoTipo);
+        controller.create(item);
+    }
+
+    public List<Numeros> getAll() {
+
+        NumerosJpaController controller = new NumerosJpaController(emf);
+        return controller.findNumerosEntities();
+    }
+
+    public List<Numeros> getAllBySorteo(int sorteoId) {
+
+        NumerosJpaController controller = new NumerosJpaController(emf);
+        return controller.findNumerosEntitiesBySorteId(sorteoId, null, null);
+    }
+
+    public List<Numeros> getAllBySorteo(int sorteoId, Date inicio, Date fin) {
+
+        NumerosJpaController controller = new NumerosJpaController(emf);
+        return controller.findNumerosEntitiesBySorteId(sorteoId, inicio, fin);
+    }
+
+    public List<Numeros> getAllbyNumero(String numero, int sorteoTipo) {
+        NumerosJpaController controller = new NumerosJpaController(emf);
+        return controller.findNumerosByNumero(numero, sorteoTipo);
     }
 }

@@ -19,7 +19,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.criteria.CriteriaBuilder;
 
-
 /**
  *
  * @author jluis
@@ -29,6 +28,7 @@ public class NumerosJpaController implements Serializable {
     public NumerosJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -126,26 +126,25 @@ public class NumerosJpaController implements Serializable {
         return findNumerosEntities(true, -1, -1);
     }
 
-     public List<Numeros> findNumerosEntitiesBySorteId(int sorteoId) {
-         return this.findNumerosEntitiesBySorteId(sorteoId, null, null);
-     }
-    public List<Numeros> findNumerosEntitiesBySorteId(int sorteoId,Date inicio,Date fin) {
-       EntityManager em = getEntityManager();
+    public List<Numeros> findNumerosEntitiesBySorteId(int sorteoId) {
+        return this.findNumerosEntitiesBySorteId(sorteoId, null, null);
+    }
+
+    public List<Numeros> findNumerosEntitiesBySorteId(int sorteoId, Date inicio, Date fin) {
+        EntityManager em = getEntityManager();
         try {
             CriteriaQuery<Numeros> criteria = em.getCriteriaBuilder().createQuery(Numeros.class);
             Root<Numeros> numerosRoot = criteria.from(Numeros.class);
-           criteria.select(numerosRoot);
-           Sorteo sorteo= new Sorteo(sorteoId);
-           if(inicio !=null&&fin!=null)
-           {
-           criteria.where(em.getCriteriaBuilder().equal(numerosRoot.get("sorteoId"), sorteo),em.getCriteriaBuilder().between(numerosRoot.get("date"), inicio, fin));
-           }
-           else{
-            criteria.where(em.getCriteriaBuilder().equal(numerosRoot.get("sorteoId"), sorteo));
-           }
-          
-           
-          Query q = em.createQuery(criteria);
+            criteria.select(numerosRoot);
+            Sorteo sorteo = new Sorteo(sorteoId);
+            if (inicio != null && fin != null) {
+                criteria.where(em.getCriteriaBuilder().equal(numerosRoot.get("sorteoId"), sorteo),
+                        em.getCriteriaBuilder().between(numerosRoot.get("date"), inicio, fin));
+            } else {
+                criteria.where(em.getCriteriaBuilder().equal(numerosRoot.get("sorteoId"), sorteo));
+            }
+
+            Query q = em.createQuery(criteria);
             List<Numeros> result = q.getResultList();
             return result;
         } finally {
@@ -201,28 +200,28 @@ public class NumerosJpaController implements Serializable {
             CriteriaBuilder cb = em.getCriteriaBuilder();
             CriteriaQuery<Numeros> criteria = cb.createQuery(Numeros.class);
             Root<Numeros> numerosRoot = criteria.from(Numeros.class);
-           criteria.select(numerosRoot);
-          Sorteo sorteo= new Sorteo(sorteoTipo);
-          Query q=null;
-          if(sorteoTipo==3)
-          {
-          criteria.where(em.getCriteriaBuilder().like(numerosRoot.get("numero"),  cb.parameter(String.class, "likeCondition")),em.getCriteriaBuilder().equal(numerosRoot.get("sorteoId"), sorteo));
-           q= em.createQuery(criteria);
-           q.setParameter("likeCondition", numero+"%");
-          }
-          else
-          {
-          criteria.where(em.getCriteriaBuilder().equal(numerosRoot.get("numero"), numero),em.getCriteriaBuilder().equal(numerosRoot.get("sorteoId"), sorteo));
-           q= em.createQuery(criteria);
-          }
-//           criteria.where(em.getCriteriaBuilder().equal(numerosRoot.get("numero"), numero),em.getCriteriaBuilder().equal(numerosRoot.get("sorteoId"), sorteo));
-          
-          
-          
+            criteria.select(numerosRoot);
+            Sorteo sorteo = new Sorteo(sorteoTipo);
+            Query q = null;
+            if (sorteoTipo == 3) {
+                criteria.where(
+                        em.getCriteriaBuilder().like(numerosRoot.get("numero"),
+                                cb.parameter(String.class, "likeCondition")),
+                        em.getCriteriaBuilder().equal(numerosRoot.get("sorteoId"), sorteo));
+                q = em.createQuery(criteria);
+                q.setParameter("likeCondition", numero + "%");
+            } else {
+                criteria.where(em.getCriteriaBuilder().equal(numerosRoot.get("numero"), numero),
+                        em.getCriteriaBuilder().equal(numerosRoot.get("sorteoId"), sorteo));
+                q = em.createQuery(criteria);
+            }
+            // criteria.where(em.getCriteriaBuilder().equal(numerosRoot.get("numero"),
+            // numero),em.getCriteriaBuilder().equal(numerosRoot.get("sorteoId"), sorteo));
+
             return q.getResultList();
         } finally {
             em.close();
         }
     }
-    
+
 }

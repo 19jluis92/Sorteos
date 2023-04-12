@@ -29,6 +29,7 @@ public class SorteoJpaController implements Serializable {
     public SorteoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -45,7 +46,8 @@ public class SorteoJpaController implements Serializable {
             em.getTransaction().begin();
             Collection<Numeros> attachedNumerosCollection = new ArrayList<Numeros>();
             for (Numeros numerosCollectionNumerosToAttach : sorteo.getNumerosCollection()) {
-                numerosCollectionNumerosToAttach = em.getReference(numerosCollectionNumerosToAttach.getClass(), numerosCollectionNumerosToAttach.getIdnumeros());
+                numerosCollectionNumerosToAttach = em.getReference(numerosCollectionNumerosToAttach.getClass(),
+                        numerosCollectionNumerosToAttach.getIdnumeros());
                 attachedNumerosCollection.add(numerosCollectionNumerosToAttach);
             }
             sorteo.setNumerosCollection(attachedNumerosCollection);
@@ -81,7 +83,8 @@ public class SorteoJpaController implements Serializable {
                     if (illegalOrphanMessages == null) {
                         illegalOrphanMessages = new ArrayList<String>();
                     }
-                    illegalOrphanMessages.add("You must retain Numeros " + numerosCollectionOldNumeros + " since its sorteoId field is not nullable.");
+                    illegalOrphanMessages.add("You must retain Numeros " + numerosCollectionOldNumeros
+                            + " since its sorteoId field is not nullable.");
                 }
             }
             if (illegalOrphanMessages != null) {
@@ -89,7 +92,8 @@ public class SorteoJpaController implements Serializable {
             }
             Collection<Numeros> attachedNumerosCollectionNew = new ArrayList<Numeros>();
             for (Numeros numerosCollectionNewNumerosToAttach : numerosCollectionNew) {
-                numerosCollectionNewNumerosToAttach = em.getReference(numerosCollectionNewNumerosToAttach.getClass(), numerosCollectionNewNumerosToAttach.getIdnumeros());
+                numerosCollectionNewNumerosToAttach = em.getReference(numerosCollectionNewNumerosToAttach.getClass(),
+                        numerosCollectionNewNumerosToAttach.getIdnumeros());
                 attachedNumerosCollectionNew.add(numerosCollectionNewNumerosToAttach);
             }
             numerosCollectionNew = attachedNumerosCollectionNew;
@@ -100,8 +104,10 @@ public class SorteoJpaController implements Serializable {
                     Sorteo oldSorteoIdOfNumerosCollectionNewNumeros = numerosCollectionNewNumeros.getSorteoId();
                     numerosCollectionNewNumeros.setSorteoId(sorteo);
                     numerosCollectionNewNumeros = em.merge(numerosCollectionNewNumeros);
-                    if (oldSorteoIdOfNumerosCollectionNewNumeros != null && !oldSorteoIdOfNumerosCollectionNewNumeros.equals(sorteo)) {
-                        oldSorteoIdOfNumerosCollectionNewNumeros.getNumerosCollection().remove(numerosCollectionNewNumeros);
+                    if (oldSorteoIdOfNumerosCollectionNewNumeros != null
+                            && !oldSorteoIdOfNumerosCollectionNewNumeros.equals(sorteo)) {
+                        oldSorteoIdOfNumerosCollectionNewNumeros.getNumerosCollection()
+                                .remove(numerosCollectionNewNumeros);
                         oldSorteoIdOfNumerosCollectionNewNumeros = em.merge(oldSorteoIdOfNumerosCollectionNewNumeros);
                     }
                 }
@@ -141,7 +147,9 @@ public class SorteoJpaController implements Serializable {
                 if (illegalOrphanMessages == null) {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
-                illegalOrphanMessages.add("This Sorteo (" + sorteo + ") cannot be destroyed since the Numeros " + numerosCollectionOrphanCheckNumeros + " in its numerosCollection field has a non-nullable sorteoId field.");
+                illegalOrphanMessages.add("This Sorteo (" + sorteo + ") cannot be destroyed since the Numeros "
+                        + numerosCollectionOrphanCheckNumeros
+                        + " in its numerosCollection field has a non-nullable sorteoId field.");
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
@@ -200,5 +208,5 @@ public class SorteoJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

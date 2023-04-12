@@ -28,10 +28,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "sorteo")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Sorteo.findAll", query = "SELECT s FROM Sorteo s"),
-    @NamedQuery(name = "Sorteo.findByIdsorteo", query = "SELECT s FROM Sorteo s WHERE s.idsorteo = :idsorteo"),
-    @NamedQuery(name = "Sorteo.findByName", query = "SELECT s FROM Sorteo s WHERE s.name = :name")})
+@NamedQueries({ @NamedQuery(name = "Sorteo.findAll", query = "SELECT s FROM Sorteo s"),
+        @NamedQuery(name = "Sorteo.findByIdsorteo", query = "SELECT s FROM Sorteo s WHERE s.idsorteo = :idsorteo"),
+        @NamedQuery(name = "Sorteo.findByName", query = "SELECT s FROM Sorteo s WHERE s.name = :name") })
 public class Sorteo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -91,7 +90,8 @@ public class Sorteo implements Serializable {
             return false;
         }
         Sorteo other = (Sorteo) object;
-        if ((this.idsorteo == null && other.idsorteo != null) || (this.idsorteo != null && !this.idsorteo.equals(other.idsorteo))) {
+        if ((this.idsorteo == null && other.idsorteo != null)
+                || (this.idsorteo != null && !this.idsorteo.equals(other.idsorteo))) {
             return false;
         }
         return true;
@@ -101,5 +101,5 @@ public class Sorteo implements Serializable {
     public String toString() {
         return "com.numeros.entity.Sorteo[ idsorteo=" + idsorteo + " ]";
     }
-    
+
 }
