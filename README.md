@@ -81,7 +81,7 @@ and you can validate the number of incidencies for a sequence number
 ## The "Registro Individual"
 you can add manually the specific winner
 
-![image](https://user-images.githubusercontent.com/8491553/231288602-f53c6d33-fdd8-4963-bb8a-b5b374e28ff7.png)
+![image](https://user-images.githubusercontent.com/8491553/231331663-64f69792-b1eb-4cd1-a5e8-95147e902c9e.png)
 
 or download the file csv from the governance page and loaded(The system does not validate duplicate information)
 
