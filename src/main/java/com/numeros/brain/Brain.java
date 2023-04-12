@@ -255,8 +255,11 @@ public class Brain {
         {
         controlNumbers.get(j).put(Integer.parseInt(""+num),0 );
         j++;
-        if(j==6) //adicional
-            break;
+            if(j==6) 
+            {
+            //adicional
+             break;
+            }
         }
          
         core.getAllBySorteo(sorteoId,inicio,fin).stream().forEach(item->{
