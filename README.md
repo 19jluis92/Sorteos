@@ -73,6 +73,11 @@ works to validate if the number win a prize in the past
 ![image](https://user-images.githubusercontent.com/8491553/231288188-04ee4084-d236-4e1b-a592-d926053c4213.png)
 ![image](https://user-images.githubusercontent.com/8491553/231288377-be47c3bd-89f4-4846-a1ec-2de1ec1ae55a.png)
 
+and you can validate the number of incidencies for a sequence number
+
+![image](https://user-images.githubusercontent.com/8491553/231330751-fda002f7-ab06-480c-b1bf-ef4d0f8677d3.png)
+
+
 ## The "Registro Individual"
 you can add manually the specific winner
 
