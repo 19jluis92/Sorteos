@@ -23,7 +23,6 @@ import javax.swing.JOptionPane;
  */
 public class Sorteos extends javax.swing.JFrame {
 
-   
     /**
      * Creates new form Inicio
      */
@@ -492,157 +491,137 @@ public class Sorteos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     File file;
     private void fileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileButtonActionPerformed
-        
-        try{
+
+        try {
             JFileChooser choose = new JFileChooser();
-			
-			choose.showOpenDialog(null);
-			
-			 this.file = choose.getSelectedFile();
-                        }catch(Exception e)
-                        {
-                        JOptionPane.showMessageDialog(null,"Error al cargar el archivo","Message",JOptionPane.INFORMATION_MESSAGE);
-                        }
+
+            choose.showOpenDialog(null);
+
+            this.file = choose.getSelectedFile();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al cargar el archivo", "Message", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_fileButtonActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-       
+
         ExecuteProgram programExe = new ExecuteProgram();
-        
-        
-        if(!this.sorteoNumero.getText().isEmpty()&&this.sorteoNumero.getText().chars().allMatch( Character::isDigit )&& this.file!=null)
-        {
-             programExe.execute(this.file,Integer.parseInt(this.sorteoNumero.getText()) , this.comboTipo.getSelectedIndex()+1,this.jCheckBox1.isSelected());
+
+        if (!this.sorteoNumero.getText().isEmpty() && this.sorteoNumero.getText().chars().allMatch(Character::isDigit) && this.file != null) {
+            programExe.execute(this.file, Integer.parseInt(this.sorteoNumero.getText()), this.comboTipo.getSelectedIndex() + 1, this.jCheckBox1.isSelected());
+        } else {
+            JOptionPane.showMessageDialog(null, "Campos incorrectos", "Message", JOptionPane.INFORMATION_MESSAGE);
         }
-        else
-        {
-         JOptionPane.showMessageDialog(null,"Campos incorrectos","Message",JOptionPane.INFORMATION_MESSAGE);
-        }
-       
-        
-        
+
+
     }//GEN-LAST:event_button2ActionPerformed
 
     private void findButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findButtonActionPerformed
-         Brain core =new Brain();
-         buscarTextArea.setText("");
-          String result="";
-       
-                
-                     result  =      core.findNumero( this.numeroFind.getText() ,this.comboTipoFind.getSelectedIndex()+1);
-                       
-              
-            buscarTextArea.setText(result);
-           JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
-         
+        Brain core = new Brain();
+        buscarTextArea.setText("");
+        String result = "";
+
+        result = core.findNumero(this.numeroFind.getText(), this.comboTipoFind.getSelectedIndex() + 1);
+
+        buscarTextArea.setText(result);
+        JOptionPane.showMessageDialog(null, "Proceso terminado", "Message", JOptionPane.INFORMATION_MESSAGE);
+
     }//GEN-LAST:event_findButtonActionPerformed
 
     private void calcularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularButtonActionPerformed
-       Brain core =new Brain();
-         buscarTextArea.setText("");
-         String result="";
-           if((this.comboTipoFind.getSelectedIndex()+1)==3)
-         {
-             if(this.datePicker3.getDate() == null ||this.datePicker4.getDate() == null ){
-                JOptionPane.showMessageDialog(null,"Falta informacion de fechas","Message",JOptionPane.INFORMATION_MESSAGE);
-                }
-             else
-             {
+        Brain core = new Brain();
+        buscarTextArea.setText("");
+        String result = "";
+        if ((this.comboTipoFind.getSelectedIndex() + 1) == 3) {
+            if (this.datePicker3.getDate() == null || this.datePicker4.getDate() == null) {
+                JOptionPane.showMessageDialog(null, "Falta informacion de fechas", "Message", JOptionPane.INFORMATION_MESSAGE);
+            } else {
                 Date inicio = Date.from(this.datePicker3.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-                Date fin =         Date.from(this.datePicker4.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-                if(this.numeroFind.getText().length()>=10 )
-                {
-                                    result  =       core.calculateNumeroMelate( this.numeroFind.getText() ,this.comboTipoFind.getSelectedIndex()+1,inicio,fin);
+                Date fin = Date.from(this.datePicker4.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+                if (this.numeroFind.getText().length() >= 10) {
+                    result = core.calculateNumeroMelate(this.numeroFind.getText(), this.comboTipoFind.getSelectedIndex() + 1, inicio, fin);
 
                 }
-             }
+            }
 
-         }
-           else{
-           
-               if(this.numeroFind.getText().length()==6)
-                    result =  core.calculateNumero( this.numeroFind.getText() ,this.comboTipoFind.getSelectedIndex()+1);
-       
-           }
-           buscarTextArea.setText(result);
-           JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
+        } else {
+
+            if (this.numeroFind.getText().length() == 6) {
+                result = core.calculateNumero(this.numeroFind.getText(), this.comboTipoFind.getSelectedIndex() + 1);
+            }
+
+        }
+        buscarTextArea.setText(result);
+        JOptionPane.showMessageDialog(null, "Proceso terminado", "Message", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_calcularButtonActionPerformed
 
     private void jButtonSaveIndividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveIndividualActionPerformed
         CoreBll core = new CoreBll();
         Numeros num = new Numeros();
-        
-        if(this.datePicker5.getDate() == null ||this.sorteoNumeroIndividual.getText() == null || this.sorteoNumeroIndividual.getText().isEmpty() || this.numeroIndividual.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null,"Falta informacion","Message",JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
-        Date dateRecord = Date.from(this.datePicker5.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-        
-        num.setDate(dateRecord);
-        num.setSorteoId(new Sorteo(this.comboTipoIndividual.getSelectedIndex()+1));
-        num.setNumeroSorteo(Integer.parseInt(this.sorteoNumeroIndividual.getText()));
-        num.setNumero(this.numeroIndividual.getText());
-        core.create(num);
+
+        if (this.datePicker5.getDate() == null || this.sorteoNumeroIndividual.getText() == null || this.sorteoNumeroIndividual.getText().isEmpty() || this.numeroIndividual.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Falta informacion", "Message", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            Date dateRecord = Date.from(this.datePicker5.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+            num.setDate(dateRecord);
+            num.setSorteoId(new Sorteo(this.comboTipoIndividual.getSelectedIndex() + 1));
+            num.setNumeroSorteo(Integer.parseInt(this.sorteoNumeroIndividual.getText()));
+            num.setNumero(this.numeroIndividual.getText());
+            core.create(num);
         }
 
-        
-        
         this.datePicker5.setDate(null);
         this.sorteoNumeroIndividual.setText("");
         this.numeroIndividual.setText("");
-        JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Proceso terminado", "Message", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonSaveIndividualActionPerformed
 
     private void algoritmoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_algoritmoButtonActionPerformed
-        Brain core =new Brain();
+        Brain core = new Brain();
         resultArea.setText("");
         String result = "";
-        if((comboTipo2.getSelectedIndex()+1 )== 3)
-        {
+        if ((comboTipo2.getSelectedIndex() + 1) == 3) {
             Date inicio = Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            Date fin =         Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            result = core.amigosMelate(comboTipo2.getSelectedIndex()+1,inicio,fin);
-        }else
-        {
+            Date fin = Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            result = core.amigosMelate(comboTipo2.getSelectedIndex() + 1, inicio, fin);
+        } else {
 
-            result =  core.concurrencias(this.comboTipo2.getSelectedIndex()+1);
+            result = core.concurrencias(this.comboTipo2.getSelectedIndex() + 1);
         }
 
         resultArea.setText(result);
-        JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Proceso terminado", "Message", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_algoritmoButtonActionPerformed
 
     private void historicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historicButtonActionPerformed
-        Brain core =new Brain();
+        Brain core = new Brain();
         resultArea.setText("");
-        String result =      core.numerosRepetidos(this.comboTipo2.getSelectedIndex()+1);
+        String result = core.numerosRepetidos(this.comboTipo2.getSelectedIndex() + 1);
         resultArea.setText(result);
-        JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Proceso terminado", "Message", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_historicButtonActionPerformed
 
     private void concurrenciaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concurrenciaButtonActionPerformed
-        Brain core =new Brain();
+        Brain core = new Brain();
         resultArea.setText("");
         String result = "";
-        if((comboTipo2.getSelectedIndex()+1 )== 3)
-        {
-          if(this.datePicker1.getDate() == null ||this.datePicker2.getDate() == null ){
-                JOptionPane.showMessageDialog(null,"Falta informacion de fechas","Message",JOptionPane.INFORMATION_MESSAGE);
-            }
-            else{
+        if ((comboTipo2.getSelectedIndex() + 1) == 3) {
+            if (this.datePicker1.getDate() == null || this.datePicker2.getDate() == null) {
+                JOptionPane.showMessageDialog(null, "Falta informacion de fechas", "Message", JOptionPane.INFORMATION_MESSAGE);
+            } else {
                 Date inicio = Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-                Date fin =         Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-                result = core.concurrenciasMelate(comboTipo2.getSelectedIndex()+1,inicio,fin);
+                Date fin = Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+                result = core.concurrenciasMelate(comboTipo2.getSelectedIndex() + 1, inicio, fin);
             }
 
-        }else
-        {
+        } else {
 
-            result =  core.concurrencias(this.comboTipo2.getSelectedIndex()+1);
+            result = core.concurrencias(this.comboTipo2.getSelectedIndex() + 1);
         }
 
         resultArea.setText(result);
-        JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Proceso terminado", "Message", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_concurrenciaButtonActionPerformed
 
     /**
