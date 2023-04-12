@@ -88,6 +88,7 @@ public class Sorteos extends javax.swing.JFrame {
         jButtonSaveIndividual = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         numeroIndividual = new javax.swing.JTextField();
+        datePicker5 = new com.github.lgooddatepicker.components.DatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -114,8 +115,8 @@ public class Sorteos extends javax.swing.JFrame {
 
         jLabel2.setText("Sorteo Numero:");
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setText("Carga de informacion");
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
         jCheckBox1.setText("Persistir");
 
@@ -173,8 +174,8 @@ public class Sorteos extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setText("Generar Numero");
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
         concurrenciaButton.setText("Concurrencias por poscicion");
         concurrenciaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -228,7 +229,7 @@ public class Sorteos extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(comboTipo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jScrollPane1)
-                            .addComponent(concurrenciaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                            .addComponent(concurrenciaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
                             .addComponent(algoritmoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(historicButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -267,7 +268,7 @@ public class Sorteos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(historicButton)
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
 
@@ -284,8 +285,8 @@ public class Sorteos extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel7.setText("Buscador Numeros");
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
         calcularButton.setText("Calcular Incidencias");
         calcularButton.addActionListener(new java.awt.event.ActionListener() {
@@ -345,7 +346,7 @@ public class Sorteos extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,8 +382,8 @@ public class Sorteos extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel9.setText("Registro Individual");
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
         jLabel10.setText("Sorteo Nombre:");
 
@@ -408,30 +409,28 @@ public class Sorteos extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboTipoIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel17))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(sorteoNumeroIndividual, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                    .addComponent(numeroIndividual))))
-                        .addGap(0, 62, Short.MAX_VALUE))
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboTipoIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonSaveIndividual)))
+                        .addComponent(jButtonSaveIndividual))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel17))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(sorteoNumeroIndividual)
+                            .addComponent(numeroIndividual)
+                            .addComponent(datePicker5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -448,7 +447,9 @@ public class Sorteos extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(sorteoNumeroIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(datePicker5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
@@ -542,10 +543,20 @@ public class Sorteos extends javax.swing.JFrame {
          String result="";
            if((this.comboTipoFind.getSelectedIndex()+1)==3)
          {
-             Date inicio = Date.from(this.datePicker3.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-             Date fin =         Date.from(this.datePicker4.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-              if(this.numeroFind.getText().length()>=10 )
-                    result  =       core.calculateNumeroMelate( this.numeroFind.getText() ,this.comboTipoFind.getSelectedIndex()+1,inicio,fin);
+             if(this.datePicker3.getDate() == null ||this.datePicker4.getDate() == null ){
+                JOptionPane.showMessageDialog(null,"Falta informacion de fechas","Message",JOptionPane.INFORMATION_MESSAGE);
+                }
+             else
+             {
+                Date inicio = Date.from(this.datePicker3.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+                Date fin =         Date.from(this.datePicker4.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+                if(this.numeroFind.getText().length()>=10 )
+                {
+                                    result  =       core.calculateNumeroMelate( this.numeroFind.getText() ,this.comboTipoFind.getSelectedIndex()+1,inicio,fin);
+
+                }
+             }
+
          }
            else{
            
@@ -561,14 +572,22 @@ public class Sorteos extends javax.swing.JFrame {
         CoreBll core = new CoreBll();
         Numeros num = new Numeros();
         
-        num.setDate(Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        if(this.datePicker5.getDate() == null ||this.sorteoNumeroIndividual.getText() == null || this.sorteoNumeroIndividual.getText().isEmpty() || this.numeroIndividual.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,"Falta informacion","Message",JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+        Date dateRecord = Date.from(this.datePicker5.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        
+        num.setDate(dateRecord);
         num.setSorteoId(new Sorteo(this.comboTipoIndividual.getSelectedIndex()+1));
         num.setNumeroSorteo(Integer.parseInt(this.sorteoNumeroIndividual.getText()));
         num.setNumero(this.numeroIndividual.getText());
         core.create(num);
+        }
+
         
         
-        this.datePicker1.setDate(null);
+        this.datePicker5.setDate(null);
         this.sorteoNumeroIndividual.setText("");
         this.numeroIndividual.setText("");
         JOptionPane.showMessageDialog(null,"Proceso terminado","Message",JOptionPane.INFORMATION_MESSAGE);
@@ -607,9 +626,15 @@ public class Sorteos extends javax.swing.JFrame {
         String result = "";
         if((comboTipo2.getSelectedIndex()+1 )== 3)
         {
-            Date inicio = Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            Date fin =         Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            result = core.concurrenciasMelate(comboTipo2.getSelectedIndex()+1,inicio,fin);
+          if(this.datePicker1.getDate() == null ||this.datePicker2.getDate() == null ){
+                JOptionPane.showMessageDialog(null,"Falta informacion de fechas","Message",JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                Date inicio = Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+                Date fin =         Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+                result = core.concurrenciasMelate(comboTipo2.getSelectedIndex()+1,inicio,fin);
+            }
+
         }else
         {
 
@@ -673,6 +698,7 @@ public class Sorteos extends javax.swing.JFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
     private com.github.lgooddatepicker.components.DatePicker datePicker4;
+    private com.github.lgooddatepicker.components.DatePicker datePicker5;
     private java.awt.Button fileButton;
     private javax.swing.JButton findButton;
     private javax.swing.JButton historicButton;
