@@ -366,7 +366,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Solo Melate  (solo aplica  para calcular incidencias)"/>
+            <Property name="text" type="java.lang.String" value="Solo Melate  (solo aplica  para calcular concurrencias)"/>
           </Properties>
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Solo Melate  (solo aplica  para calcular concurrencias)"/>

@@ -221,7 +221,7 @@ public class Sorteos extends javax.swing.JFrame {
 
         jLabel5.setText("Sorteo Nombre:");
 
-        jLabel15.setText("Solo Melate  (solo aplica  para calcular incidencias)");
+        jLabel15.setText("Solo Melate  (solo aplica  para calcular concurrencias)");
 
         jLabel16.setText("Inicio");
 
