@@ -13,11 +13,13 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import com.numeros.entity.Sorteo;
 import com.numeros.persistence.exceptions.NonexistentEntityException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.Order;
 
 /**
  *
@@ -224,4 +226,24 @@ public class NumerosJpaController implements Serializable {
         }
     }
 
+    public Numeros findLastNumeros(Integer sorteoId) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery<Numeros> criteria = em.getCriteriaBuilder().createQuery(Numeros.class);
+            List<Order> orderList = new ArrayList();
+            Root<Numeros> numerosRoot = criteria.from(Numeros.class);
+            criteria.select(numerosRoot);
+            Sorteo sorteo = new Sorteo(sorteoId);
+
+            criteria.where(em.getCriteriaBuilder().equal(numerosRoot.get("sorteoId"), sorteo));
+            orderList.add(em.getCriteriaBuilder().desc(numerosRoot.get("date")));
+            criteria.orderBy(orderList);
+
+            Query q = em.createQuery(criteria).setMaxResults(1);
+            Numeros result = (Numeros) q.getSingleResult();
+            return result;
+        } finally {
+            em.close();
+        }
+    }
 }

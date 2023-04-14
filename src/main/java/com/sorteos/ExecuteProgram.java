@@ -10,6 +10,7 @@ import com.numeros.csv.CsvProcessor;
 import com.numeros.entity.Numeros;
 import com.numeros.entity.Sorteo;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 
 public class ExecuteProgram {
@@ -30,7 +31,7 @@ public class ExecuteProgram {
     //
     // }
 
-    public void execute(File file, int sorteo, int claveSorteo, boolean persistir) {
+    public void execute(File file, int sorteo, int claveSorteo, boolean persistir, boolean filterDuplicate) {
 
         CsvProcessor csvProce = new CsvProcessor();
 
@@ -38,11 +39,18 @@ public class ExecuteProgram {
 
         if (persistir && listInteger != null && listInteger.size() > 0) {
             CoreBll persit = new CoreBll();
+
+            if (filterDuplicate) {
+                Numeros last = persit.getLastNumero(claveSorteo);
+                listInteger = listInteger.stream().filter(filter -> filter.getDate().after(last.getDate()))
+                        .collect(Collectors.toCollection(ArrayList::new));
+            }
+
             listInteger.stream().forEach(x -> {
 
                 Numeros item = x;
 
-                if (item.getNumeroSorteo() <= 0)
+                if (item.getNumeroSorteo() <= 0)// to put the number for TEc and estrella
                     item.setNumeroSorteo(sorteo);
 
                 item.setSorteoId(new Sorteo(claveSorteo));

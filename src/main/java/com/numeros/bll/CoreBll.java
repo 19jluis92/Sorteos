@@ -51,4 +51,9 @@ public class CoreBll {
         NumerosJpaController controller = new NumerosJpaController(emf);
         return controller.findNumerosByNumero(numero, sorteoTipo);
     }
+
+    public Numeros getLastNumero(int sorteoTipo) {
+        NumerosJpaController controller = new NumerosJpaController(emf);
+        return controller.findLastNumeros(sorteoTipo);
+    }
 }
