@@ -83,5 +83,5 @@ you can add manually the specific winner
 
 ![image](https://user-images.githubusercontent.com/8491553/231331663-64f69792-b1eb-4cd1-a5e8-95147e902c9e.png)
 
-or download the file csv from the governance page and loaded(The system does not validate duplicate information)
+or download the file csv from the governance page and loaded(The system validate duplicate information in base of the Date)
 
