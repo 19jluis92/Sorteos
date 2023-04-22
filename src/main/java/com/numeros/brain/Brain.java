@@ -195,6 +195,18 @@ public class Brain {
         return result;
     }
 
+    /***
+     *
+     * Este metodo busca el numero que mas sale en cada posicion, validando que el siguiente sea mayor
+     * al anterior, las lineas comentadas son para sacar el adicionl, de momento no es necesario.
+     *
+     *
+     * @param numero
+     * @param sorteoId
+     * @param inicio
+     * @param fin
+     * @return
+     */
     public String calculateNumeroMelate(String numero, int sorteoId, Date inicio, Date fin) {
         String result = "";
         HashMap<Integer, HashMap<Integer, Integer>> controlNumbers = new HashMap<>();
@@ -408,6 +420,13 @@ public class Brain {
         return result;
     }
 
+    /***
+     * Este metodo complementa el numero en 2 digitos sirve escensialmente para los numeros 1-9
+     *
+     * @param numb
+     * @param total
+     * @return
+     */
     private String completeNumber(String numb, int total) {
 
         while (numb.length() < total) {
