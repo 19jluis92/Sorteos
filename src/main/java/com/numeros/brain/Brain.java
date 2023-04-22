@@ -350,7 +350,11 @@ public class Brain {
 
         List<Numeros> originList = core.getAllBySorteo(sorteoId, inicio, fin);
 
-        estadistica(originList);// TODO test
+        estadistica(originList);// TODO test no se usa no se ideo la manera correcta de usar las variables estadisticas
+
+        //TODO en cambio se genera combinaciones tomando como base inicial el numero "2"
+        // que es el que mas sale en la primer posicision
+        // se busca el numero mas recurrente en la poscision 2 mayor a "2"
 
         Integer[] tempNumber = new Integer[1];
         // Filter 2
@@ -358,7 +362,7 @@ public class Brain {
         Map<Integer, List<Numeros>> map = originList.stream().filter(x -> x.getposNumero1() == 2)
                 .collect(groupingBy(y -> y.getposNumero2()));
 
-        // filter 2-> mayor
+        // filter 2-> mayor se busca el numero mas recurrente en la poscision 3 mayor a la base 2
         Integer pos2 = 0;
         List<Numeros> listTemp = this.mayorOfHashMap(map);
         pos2 = listTemp.get(0).getposNumero2();
@@ -366,7 +370,7 @@ public class Brain {
         map = originList.stream().filter(x -> x.getposNumero2() == tempNumber[0])
                 .collect(groupingBy(y -> y.getposNumero3()));
 
-        // filter 3-> mayor
+        // filter 3-> mayor se busca el numero mas recurrente en la poscision 3 mayor a posicion2
         Integer pos3 = 0;
         listTemp = this.mayorOfHashMap(map);
         pos3 = listTemp.get(0).getposNumero3();
@@ -374,7 +378,7 @@ public class Brain {
         map = originList.stream().filter(x -> x.getposNumero3() == tempNumber[0])
                 .collect(groupingBy(y -> y.getposNumero4()));
 
-        // filter 4-> mayor
+        // filter 4-> mayor se busca el numero mas recurrente en la poscision 4 mayor a posicion3
         Integer pos4 = 0;
         listTemp = this.mayorOfHashMap(map);
         pos4 = listTemp.get(0).getposNumero4();
@@ -382,7 +386,7 @@ public class Brain {
         map = originList.stream().filter(x -> x.getposNumero4() == tempNumber[0])
                 .collect(groupingBy(y -> y.getposNumero5()));
 
-        // filter 5-> mayor
+        // filter 5-> mayor se busca el numero mas recurrente en la poscision 5 mayor a posicion4
         Integer pos5 = 0;
         listTemp = this.mayorOfHashMap(map);
         pos5 = listTemp.get(0).getposNumero5();
@@ -390,7 +394,7 @@ public class Brain {
         map = originList.stream().filter(x -> x.getposNumero5() == tempNumber[0])
                 .collect(groupingBy(y -> y.getposNumero6()));
 
-        // filter 6-> mayor
+        // filter 6-> mayor se busca el numero mas recurrente en la poscision 6 mayor a posicion5
         Integer pos6 = 0;
         listTemp = this.mayorOfHashMap(map);
         pos6 = listTemp.get(0).getposNumero6();
