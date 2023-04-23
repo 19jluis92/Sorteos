@@ -579,7 +579,20 @@ public class Sorteos extends javax.swing.JFrame {
                 }
             }
 
-        } else {
+        }
+        //MELATE-RETRO
+        else if ((comboTipoFind.getSelectedIndex() + 1) == 4) {
+                Calendar cals = Calendar.getInstance();
+                cals.set(1900, 0, 1);
+                Date inicio = cals.getTime();
+                Date fin = new Date();
+                if (this.numeroFind.getText().length() >= 10) {
+                    result = core.calculateNumeroMelate(this.numeroFind.getText(),
+                            this.comboTipoFind.getSelectedIndex() + 1, inicio, fin);
+
+                }
+            }
+        else {
 
             if (this.numeroFind.getText().length() == 6) {
                 result = core.calculateNumero(this.numeroFind.getText(), this.comboTipoFind.getSelectedIndex() + 1);
@@ -617,11 +630,22 @@ public class Sorteos extends javax.swing.JFrame {
         Brain core = new Brain();
         resultArea.setText("");
         String result = "";
+        //MELATE
         if ((comboTipo2.getSelectedIndex() + 1) == 3) {
             Date inicio = Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
             Date fin = Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
             result = core.amigosMelate(comboTipo2.getSelectedIndex() + 1, inicio, fin);
-        } else {
+        }
+        //MELATE-RETRO
+        else if ((comboTipo2.getSelectedIndex() + 1) == 4) {
+                Calendar cals = Calendar.getInstance();
+                cals.set(1900, 0, 1);
+                Date inicio = cals.getTime();
+                Date fin = new Date();
+               result = core.amigosMelate(comboTipo2.getSelectedIndex() + 1, inicio, fin);
+            }
+        //TEC-MELATE
+        else {
 
             result = core.concurrencias(this.comboTipo2.getSelectedIndex() + 1);
         }
