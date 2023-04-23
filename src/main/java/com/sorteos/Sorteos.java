@@ -13,6 +13,8 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
+import static java.util.Calendar.MONTH;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -95,7 +97,7 @@ public class Sorteos extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tec", "Estrella", "Melate" }));
+        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tec", "Estrella", "Melate", "Melate-retro" }));
 
         fileButton.setLabel("Cargar Archivo");
         fileButton.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +219,7 @@ public class Sorteos extends javax.swing.JFrame {
         resultArea.setRows(5);
         jScrollPane1.setViewportView(resultArea);
 
-        comboTipo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tec", "Estrella", "Melate" }));
+        comboTipo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tec", "Estrella", "Melate", "Melate-retro" }));
 
         jLabel5.setText("Sorteo Nombre:");
 
@@ -287,8 +289,6 @@ public class Sorteos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel15.getAccessibleContext().setAccessibleName("Solo Melate  (solo aplica  para calcular concurrencias)");
-
         jPanel3.setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel6.setText("Numero:");
@@ -310,7 +310,7 @@ public class Sorteos extends javax.swing.JFrame {
             }
         });
 
-        comboTipoFind.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tec", "Estrella", "Melate" }));
+        comboTipoFind.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tec", "Estrella", "Melate", "Melate-retro" }));
 
         jLabel8.setText("Sorteo Nombre:");
 
@@ -402,7 +402,7 @@ public class Sorteos extends javax.swing.JFrame {
 
         jLabel10.setText("Sorteo Nombre:");
 
-        comboTipoIndividual.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tec", "Estrella", "Melate" }));
+        comboTipoIndividual.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tec", "Estrella", "Melate", "Melate-retro" }));
 
         jLabel11.setText("Sorteo Numero:");
 
@@ -533,8 +533,16 @@ public class Sorteos extends javax.swing.JFrame {
         }
         else if(this.sorteoNumero.getText().isEmpty() 
                 && this.file != null){
-        programExe.execute(this.file, 0,
+                if((String.valueOf(this.comboTipo.getSelectedItem()) )== "Melate"){
+                 programExe.execute(this.file, 0,
                     this.comboTipo.getSelectedIndex() + 1, this.jCheckBox1.isSelected(), this.checkFilter.isSelected());
+                }
+                else{
+                    
+                    programExe.execute(this.file, 0,
+                    this.comboTipo.getSelectedIndex() + 1, this.jCheckBox1.isSelected(), this.checkFilter.isSelected());
+                }
+       
         }else {
             JOptionPane.showMessageDialog(null, "Campos incorrectos", "Message", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -571,7 +579,20 @@ public class Sorteos extends javax.swing.JFrame {
                 }
             }
 
-        } else {
+        }
+        //MELATE-RETRO
+        else if ((comboTipoFind.getSelectedIndex() + 1) == 4) {
+                Calendar cals = Calendar.getInstance();
+                cals.set(1900, 0, 1);
+                Date inicio = cals.getTime();
+                Date fin = new Date();
+                if (this.numeroFind.getText().length() >= 10) {
+                    result = core.calculateNumeroMelate(this.numeroFind.getText(),
+                            this.comboTipoFind.getSelectedIndex() + 1, inicio, fin);
+
+                }
+            }
+        else {
 
             if (this.numeroFind.getText().length() == 6) {
                 result = core.calculateNumero(this.numeroFind.getText(), this.comboTipoFind.getSelectedIndex() + 1);
@@ -609,11 +630,22 @@ public class Sorteos extends javax.swing.JFrame {
         Brain core = new Brain();
         resultArea.setText("");
         String result = "";
+        //MELATE
         if ((comboTipo2.getSelectedIndex() + 1) == 3) {
             Date inicio = Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
             Date fin = Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
             result = core.amigosMelate(comboTipo2.getSelectedIndex() + 1, inicio, fin);
-        } else {
+        }
+        //MELATE-RETRO
+        else if ((comboTipo2.getSelectedIndex() + 1) == 4) {
+                Calendar cals = Calendar.getInstance();
+                cals.set(1900, 0, 1);
+                Date inicio = cals.getTime();
+                Date fin = new Date();
+               result = core.amigosMelate(comboTipo2.getSelectedIndex() + 1, inicio, fin);
+            }
+        //TEC-MELATE
+        else {
 
             result = core.concurrencias(this.comboTipo2.getSelectedIndex() + 1);
         }
@@ -634,6 +666,7 @@ public class Sorteos extends javax.swing.JFrame {
         Brain core = new Brain();
         resultArea.setText("");
         String result = "";
+        //MELATE
         if ((comboTipo2.getSelectedIndex() + 1) == 3) {
             if (this.datePicker1.getDate() == null || this.datePicker2.getDate() == null) {
                 JOptionPane.showMessageDialog(null, "Falta informacion de fechas", "Message",
@@ -644,7 +677,19 @@ public class Sorteos extends javax.swing.JFrame {
                 result = core.concurrenciasMelate(comboTipo2.getSelectedIndex() + 1, inicio, fin);
             }
 
-        } else {
+        }
+        //MELATE-RETRO
+        if ((comboTipo2.getSelectedIndex() + 1) == 4) {
+           Calendar cals = Calendar.getInstance();
+           cals.set(1900, 0, 1);
+                Date inicio = cals.getTime();
+                Date fin = new Date();
+                result = core.concurrenciasMelate(comboTipo2.getSelectedIndex() + 1, inicio, fin);
+            
+
+        } 
+        //TEC-Estrella
+        else {
 
             result = core.concurrencias(this.comboTipo2.getSelectedIndex() + 1);
         }
