@@ -151,10 +151,11 @@
         <Component class="javax.swing.JComboBox" name="comboTipo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="4">
                 <StringItem index="0" value="Tec"/>
                 <StringItem index="1" value="Estrella"/>
                 <StringItem index="2" value="Melate"/>
+                <StringItem index="3" value="Melate-retro"/>
               </StringArray>
             </Property>
           </Properties>
@@ -347,10 +348,11 @@
         <Component class="javax.swing.JComboBox" name="comboTipo2">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="4">
                 <StringItem index="0" value="Tec"/>
                 <StringItem index="1" value="Estrella"/>
                 <StringItem index="2" value="Melate"/>
+                <StringItem index="3" value="Melate-retro"/>
               </StringArray>
             </Property>
           </Properties>
@@ -368,9 +370,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Solo Melate  (solo aplica  para calcular concurrencias)"/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Solo Melate  (solo aplica  para calcular concurrencias)"/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
@@ -517,10 +516,11 @@
         <Component class="javax.swing.JComboBox" name="comboTipoFind">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="4">
                 <StringItem index="0" value="Tec"/>
                 <StringItem index="1" value="Estrella"/>
                 <StringItem index="2" value="Melate"/>
+                <StringItem index="3" value="Melate-retro"/>
               </StringArray>
             </Property>
           </Properties>
@@ -666,10 +666,11 @@
         <Component class="javax.swing.JComboBox" name="comboTipoIndividual">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="4">
                 <StringItem index="0" value="Tec"/>
                 <StringItem index="1" value="Estrella"/>
                 <StringItem index="2" value="Melate"/>
+                <StringItem index="3" value="Melate-retro"/>
               </StringArray>
             </Property>
           </Properties>

@@ -33,6 +33,7 @@ public class CsvProcessor {
                     break;
 
                 case 3:
+                case 4:
                     this.melate(line, listResult);
                     break;
 
