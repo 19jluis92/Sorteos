@@ -8,6 +8,8 @@ package com.numeros.brain;
 import com.numeros.bll.CoreBll;
 import com.numeros.entity.Numeros;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -354,6 +356,66 @@ public class Brain {
         // result=result.isEmpty()? result+""+data:data+",\r\n"+result;
         // }
         // return result;
+    }
+    
+        public String concurrenciasMelateNoPosicion(int sorteoId, Date inicio, Date fin) {
+
+
+
+        List<Numeros> listResult = core.getAllBySorteo(sorteoId, inicio, fin);
+            String result = "";
+
+        HashMap<Integer, Integer> controlNumbers = new HashMap<>();
+        HashMap<Integer, Integer> controlNumbersTemp = new HashMap<>();
+        String[] maybe = new String[54];
+        
+
+        
+
+
+        listResult.stream().forEach(item -> {
+            int i = 0;
+            String[] numbers = this.bytwo(item.getNumero());
+            for (String num : numbers) {
+                int numTemp = Integer.parseInt("" + num);
+
+                if (controlNumbers.containsKey(numTemp)) {
+                    Integer aux = controlNumbers.get(numTemp);
+                    controlNumbers.replace(numTemp, ++aux);
+                } else {
+                    controlNumbers.put(numTemp, 1);
+                }
+                i++;
+                if (i == 6) // adicional
+                    break;
+            }
+        });
+
+       
+        ArrayList<Integer> elems = new ArrayList();
+        ;
+        Entry<Integer, Integer> entTemp = null;
+        int j=0;
+        for (Iterator<Entry<Integer, Integer>> it = controlNumbers.entrySet().stream()
+                .sorted((k1, k2) -> -k1.getValue().compareTo(k2.getValue())).iterator(); it.hasNext();) {
+            Entry<Integer, Integer> ent = it.next();
+
+            elems.add( ent.getKey());
+            j++;
+            if(j==6){
+                break;
+            }
+        }
+
+        
+
+        for (Integer data : elems.stream().sorted().collect(Collectors.toList())) {
+            result = result.isEmpty() ? result + "" + data+ ","  : result + data + "," ;
+        }
+
+        return result;
+
+
     }
 
     public String amigosMelate(int sorteoId, Date inicio, Date fin) {

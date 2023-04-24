@@ -243,7 +243,6 @@
                               </Group>
                               <Component id="jScrollPane1" max="32767" attributes="0"/>
                               <Component id="concurrenciaButton" pref="333" max="32767" attributes="0"/>
-                              <Component id="algoritmoButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="historicButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel15" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
@@ -255,6 +254,12 @@
                                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="datePicker1" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="algoritmoButton" min="-2" pref="134" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                  <Component id="jButtonAlgortmo2" min="-2" pref="131" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -287,7 +292,10 @@
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Component id="concurrenciaButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="algoritmoButton" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="algoritmoButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonAlgortmo2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="historicButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -384,6 +392,14 @@
         <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker1">
         </Component>
         <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker2">
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonAlgortmo2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Algoritmo2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAlgortmo2ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

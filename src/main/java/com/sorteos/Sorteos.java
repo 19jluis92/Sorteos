@@ -65,6 +65,7 @@ public class Sorteos extends javax.swing.JFrame {
         Fin1 = new javax.swing.JLabel();
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
+        jButtonAlgortmo2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         numeroFind = new javax.swing.JTextField();
@@ -229,6 +230,13 @@ public class Sorteos extends javax.swing.JFrame {
 
         Fin1.setText("Fin");
 
+        jButtonAlgortmo2.setText("Algoritmo2");
+        jButtonAlgortmo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlgortmo2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -247,7 +255,6 @@ public class Sorteos extends javax.swing.JFrame {
                                 .addComponent(comboTipo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jScrollPane1)
                             .addComponent(concurrenciaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
-                            .addComponent(algoritmoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(historicButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -257,7 +264,12 @@ public class Sorteos extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(datePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(datePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(algoritmoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(55, 55, 55)
+                                .addComponent(jButtonAlgortmo2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(32, 32, 32))
         );
         jPanel2Layout.setVerticalGroup(
@@ -281,7 +293,9 @@ public class Sorteos extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(concurrenciaButton)
                 .addGap(18, 18, 18)
-                .addComponent(algoritmoButton)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(algoritmoButton)
+                    .addComponent(jButtonAlgortmo2))
                 .addGap(18, 18, 18)
                 .addComponent(historicButton)
                 .addGap(27, 27, 27)
@@ -505,6 +519,44 @@ public class Sorteos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAlgortmo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlgortmo2ActionPerformed
+        Brain core = new Brain();
+        resultArea.setText("");
+        String result = "";
+        //MELATE
+        if ((comboTipo2.getSelectedIndex() + 1) == 3) {
+            if (this.datePicker1.getDate() == null || this.datePicker2.getDate() == null) {
+                JOptionPane.showMessageDialog(null, "Falta informacion de fechas", "Message",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                Date inicio = Date.from(this.datePicker1.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+                Date fin = Date.from(this.datePicker2.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+                result = core.concurrenciasMelateNoPosicion(comboTipo2.getSelectedIndex() + 1, inicio, fin);//TODO update
+            }
+
+        }
+        //MELATE-RETRO
+        if ((comboTipo2.getSelectedIndex() + 1) == 4) {
+           Calendar cals = Calendar.getInstance();
+           cals.set(1900, 0, 1);
+                Date inicio = cals.getTime();
+                Date fin = new Date();
+                result = core.concurrenciasMelateNoPosicion(comboTipo2.getSelectedIndex() + 1, inicio, fin);//TODO update
+            
+
+        } 
+        //TEC-Estrella
+        else {
+
+           // result = core.concurrenciasMelateNoPosicion(this.comboTipo2.getSelectedIndex() + 1);//TODO update
+        }
+
+        resultArea.setText(result);
+        JOptionPane.showMessageDialog(null, "Proceso terminado", "Message", JOptionPane.INFORMATION_MESSAGE);      
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAlgortmo2ActionPerformed
 
     File file;
 
@@ -758,6 +810,7 @@ public class Sorteos extends javax.swing.JFrame {
     private java.awt.Button fileButton;
     private javax.swing.JButton findButton;
     private javax.swing.JButton historicButton;
+    private javax.swing.JButton jButtonAlgortmo2;
     private javax.swing.JButton jButtonSaveIndividual;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
