@@ -201,7 +201,7 @@ public class Brain {
      *
      * Este metodo busca el numero que mas sale en cada posicion, validando que el siguiente sea mayor
      * al anterior, las lineas comentadas son para sacar el adicionl, de momento no es necesario.
-     *
+     * funciona para melate retro tambien
      *
      * @param numero
      * @param sorteoId
@@ -255,6 +255,14 @@ public class Brain {
         return result;
     }
 
+    /**
+     * busca  el numero que mas sale en la posicion correspondiente ,devuelve el numero de melate valido
+     * funciona para melate retro tambien
+     * @param sorteoId
+     * @param inicio
+     * @param fin
+     * @return
+     */
     public String concurrenciasMelate(int sorteoId, Date inicio, Date fin) {
 
         String result = "";
@@ -357,7 +365,16 @@ public class Brain {
         // }
         // return result;
     }
-    
+
+    /**
+     * busca los numeros que mas salen sin importar poscision , toma los 6 que mas salen y los ordena de
+     * menor a mayor para formar el numero de melate
+     * funciona para melate retro tambien
+     * @param sorteoId
+     * @param inicio
+     * @param fin
+     * @return
+     */
         public String concurrenciasMelateNoPosicion(int sorteoId, Date inicio, Date fin) {
 
 
